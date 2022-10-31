@@ -7,7 +7,7 @@ import { Column } from "../types/Column";
 
 describe('App Reducer', () => {
 
-    describe('ADD_APPLICANT', () => {
+    describe('CREATE_APPLICANT', () => {
         it('should add applicant to the state', () => {
             // Arrange 
             const form: Applicant = { id: '1abc', name: 'Alexis', description: 'Dev', nationality: 'Brazilian', age: 25, column: Column.Applied }

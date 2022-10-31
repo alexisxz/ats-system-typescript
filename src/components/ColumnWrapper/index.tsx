@@ -21,25 +21,20 @@ export const ColumnWrapper = ({ column, applicants }: Props) => {
         <Styled.Container>
             <Styled.Column>
                 <h2>{column}</h2>
-                {
-                    applicants.map((item, index) => {
-                        if (item.column !== column) return;
-                        return (
-                            <div key={index}>
-                                <h3>{item.name} |</h3>
-                                <p>{item.age} years |</p>
-                                <p>{item.nationality} |</p>
-                                <p>{item.description}</p>
-                                <button onClick={() => handleSelectButton(item, index)}>Select</button>
-                                <button onClick={() => deleteApplicant(item.id)}>Delete</button>
+                {applicants.filter(item => item.column === column).map((item, index) => (
+                    <div key={index}>
+                        <h3>{item.name} |</h3>
+                        <p>{item.age} years |</p>
+                        <p>{item.nationality} |</p>
+                        <p>{item.description}</p>
+                        <button onClick={() => handleSelectButton(item, index)}>Select</button>
+                        <button onClick={() => deleteApplicant(item.id)}>Delete</button>
 
-                                <div>
-                                    <SelectMove item={item} />
-                                </div>
-                            </div>
-                        )
-                    })
-                }
+                        <div>
+                            <SelectMove item={item} />
+                        </div>
+                    </div>
+                ))}
             </Styled.Column>
         </Styled.Container>
     )

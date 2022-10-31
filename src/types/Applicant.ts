@@ -1,3 +1,5 @@
+import { Column } from "./Column"
+
 export type Applicant = {
     id: string,
     name: string,
